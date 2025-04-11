@@ -59,12 +59,12 @@ keep_scale = true
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, unshaded;
 
 uniform sampler2D MainTex;
 uniform vec2 DissolveTiling = vec2(1.000000, 1.000000);
 uniform sampler2D DissolveTexture;
-uniform float DissolveAmount : hint_range(0.0, 1.0) = 0.0;
+uniform float DissolveAmount : hint_range(0, 1) = 0;
 
 
 
@@ -148,6 +148,7 @@ void fragment() {
 
 }
 "
+flags/unshaded = true
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_qxwh7")
 nodes/vertex/2/position = Vector2(-180, 220)
 nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
